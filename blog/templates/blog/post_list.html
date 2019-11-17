@@ -13,7 +13,7 @@
             <div>
                 <p>published: {{post.published_date}}</p>
                 <h2><a href="">{{post.title}}</a></h2> <!--Criando posts estáticos-->
-                <p>{{[post.text|linebreaksbr}}</p>
+                <p>{{ post.text|linebreaksbr }}</p> <!--linebreaksbr converte quebra de linha em paragrafo-->
             </div>
         {%endfor%}
             
