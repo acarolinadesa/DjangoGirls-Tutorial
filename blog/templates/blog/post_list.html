@@ -1,16 +1,24 @@
 <!DOCTYPE html>
+<head>
 <html>
-    <head>
-        <title>Jornada do desenvolvedor</title>
 
+        <title>Jornada do desenvolvedor</title>
+        <body>
     </head>
-    <body>
+        <div> <p>O meu blog que eu mesma criei seguindo o tutorial do Django Girls</p>
         <div> <a href="/">Jornada do desenvolvedor - por Ana Carolina de Sá</a></div>
-        <div> <p>O meu blog que eu mesmo criei seguindo o tutorial do Django Girls</p>
-        
-        
-        <div>
+            
+        <!--Lista de objetos-->
+        {%for post in posts%}
+            <div>
+                <p>published: {{post.published_date}}</p>
+                <h2><a href="">{{post.title}}</a></h2> <!--Criando posts estáticos-->
+                <p>{{[post.text|linebreaksbr}}</p>
+            </div>
+        {%endfor%}
+            
             <h3>Topicos que preciso escrever</h3>
+        <div>
             <ul><li>O que nunca me contaram</li></ul>
             <ul><li>Os desafios com o git: meu primeiro projeto em equipe</li></ul>
             <ul><li>Ser desenvolvedora: dicas para comecar sua jornada</li></ul>
@@ -23,5 +31,6 @@
         
         
         <p>Hello World, btw</p> </div>
+        
     </body>
 </html>
