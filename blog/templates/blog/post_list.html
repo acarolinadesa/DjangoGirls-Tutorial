@@ -1,36 +1,19 @@
-<!DOCTYPE html>
-<head>
-<html>
-
-        <title>Jornada do desenvolvedor</title>
-        <body>
-    </head>
-        <div> <p>O meu blog que eu mesma criei seguindo o tutorial do Django Girls</p>
-        <div> <a href="/">Jornada do desenvolvedor - por Ana Carolina de Sá</a></div>
-            
-        <!--Lista de objetos-->
-        {%for post in posts%}
-            <div>
+<!--Estender templates-->
+{% extends 'blog/base.html' %}
+<!--Bloco-->
+{% block content %} 
+ <!--Lista de objetos-->
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
                 <p>published: {{post.published_date}}</p>
-                <h2><a href="">{{post.title}}</a></h2> <!--Criando posts estáticos-->
-                <p>{{ post.text|linebreaksbr }}</p> <!--linebreaksbr converte quebra de linha em paragrafo-->
             </div>
-        {%endfor%}
-            
-            <h3>Topicos que preciso escrever</h3>
-        <div>
-            <ul><li>O que nunca me contaram</li></ul>
-            <ul><li>Os desafios com o git: meu primeiro projeto em equipe</li></ul>
-            <ul><li>Ser desenvolvedora: dicas para comecar sua jornada</li></ul>
-            <ul><li>Not a mistake, just happy little accidents</li></ul>
+            <!--Criando posts estáticos-->
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h2> 
+            <!--post_detail - Django espera uma URL no arquivo
+                pk = post.pk - primary key(identificador unico de cada entrada no banco de dados) -->
+                
+            <p>{{ post.text|linebreaksbr }}</p> <!--linebreaksbr converte quebra de linha em paragrafo-->
         </div>
-        
-        
-        
-        
-        
-        
-        <p>Hello World, btw</p> </div>
-        
-    </body>
-</html>
+    {% endfor %}
+{% endblock %}
