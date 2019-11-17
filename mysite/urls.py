@@ -14,8 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+
+#Linhas entre aspas triplas (''' ou """) são chamadas de docstrings -- você pode escrevê-las no topo de um arquivo, classe ou método para descrever o que ele faz. 
+#   Elas não serão executadas pelo Python.
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('blog.urls')),
 ]
