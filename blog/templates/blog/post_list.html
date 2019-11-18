@@ -12,7 +12,7 @@
             <h2><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h2> 
             <!--post_detail - Django espera uma URL no arquivo
                 pk = post.pk - primary key(identificador unico de cada entrada no banco de dados) -->
-                
+            
             <p>{{ post.text|linebreaksbr }}</p> <!--linebreaksbr converte quebra de linha em paragrafo-->
         </div>
     {% endfor %}
